@@ -117,7 +117,6 @@ const SchoolWaiting = () => {
   return (
     <div>
       {isAccessingExams ? (
-        // You might want to add a loading component or redirect logic here
         <div>Redirecting to exams...</div>
       ) : (
         <div className="flex flex-col justify-around items-center md:px-5 gap-1 bg-white md:p-2">
@@ -169,7 +168,7 @@ const SchoolWaiting = () => {
           </div>
 
           {filteredAccounts.length === 0 ? (
-            <p className="text-center py-4 text-red-500">No data found</p>
+            <p className="text-center py-4 text-red-500 md:text-md text-sm">Konte zawe zose zararangiye cg Ukaba nta Konte uragura!!!</p>
           ) : (
             <div className="grid md:grid-cols-3 w-full gap-4 md:gap-3 py-1">
               {currentAccounts.map((account, index) => {

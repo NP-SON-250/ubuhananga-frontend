@@ -81,12 +81,6 @@ const Sidebar = ({ role = "students", onSignOut, isExpanded, toggleSidebar }) =>
         iconL: <IoIosArrowForward />,
       },
       {
-        name: "gukora Ibizamini",
-        path: "/schools/online",
-        iconR: <PiFolderSimpleUserLight />,
-        iconL: <IoIosArrowForward />,
-      },
-      {
         name: "Konte Naguze",
         path: "/schools/accounts",
         iconR: <IoIosMenu />,
