@@ -264,7 +264,7 @@ const SchoolMyExams = () => {
       <div className="grid md:grid-cols-3 grid-cols-1 justify-between items-center md:gap-32 gap-1 px-3 py-4 text-gray-400 text-sx">
         <input
           type="text"
-          placeholder="---Shakisha Bukimwe---"
+          placeholder="---Shakisha Burikimwe---"
           className="border border-gray-300 rounded px-3 py-1 outline-none"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
