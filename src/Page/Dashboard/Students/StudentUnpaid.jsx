@@ -42,7 +42,7 @@ const StudentUnpaid = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       setExam(response.data);
     } catch (error) {
@@ -113,14 +113,14 @@ const StudentUnpaid = () => {
       (searchTerm === "" ||
         item.itemId.type?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.itemId.fees?.toString().includes(searchTerm) ||
-        item.itemId.number?.includes(searchTerm))
+        item.itemId.number?.includes(searchTerm)),
   );
 
   // Pagination logic
   const totalPages = Math.ceil(filteredExams.length / examsPerPage);
   const currentExams = filteredExams.slice(
     currentPage * examsPerPage,
-    (currentPage + 1) * examsPerPage
+    (currentPage + 1) * examsPerPage,
   );
 
   const handlePurchaseClick = (exam) => {
@@ -173,7 +173,7 @@ const StudentUnpaid = () => {
       const purchasedDataId = selectedExam._id;
       const paidItem = selectedExam.itemId;
 
-      const notificationMessage = `Dear Admin, ${userName} yishyuye ikizamini cya ${paidItem.title} (${paidItem.type}) amafaranga ${paidItem.fees} Rwf akoresheje telephone ${phoneUsed} (${ownerName}). Reba ko wayabonye kuri MoMo pay ya 072255 maze umuhe uburenganzira kuri iyi purchase ID: ${purchasedDataId}. Murakoze!!!!!`;
+      const notificationMessage = `Dear Admin, ${userName} yishyuye ikizamini cya ${paidItem.title} (${paidItem.type}) amafaranga ${paidItem.fees} Rwf akoresheje telephone ${phoneUsed} (${ownerName}). Reba ko wayabonye kuri MoMo pay ya 66966 maze umuhe uburenganzira kuri iyi purchase ID: ${purchasedDataId}. Murakoze!!!!!`;
 
       await axios.post(
         `https://congozi-backend-6jc5.onrender.com/api/v1/notification`,
@@ -188,7 +188,7 @@ const StudentUnpaid = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       await axios.put(
@@ -198,7 +198,7 @@ const StudentUnpaid = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setMessage({
@@ -221,7 +221,7 @@ const StudentUnpaid = () => {
 
   // Copy payment code
   const copyPaymentCode = () => {
-    const paymentCode = `*182*8*1*072255*${selectedExam.itemId.fees}#`;
+    const paymentCode = `*182*8*1*66966*${selectedExam.itemId.fees}#`;
     navigator.clipboard
       .writeText(paymentCode)
       .then(() => {
@@ -380,7 +380,7 @@ const StudentUnpaid = () => {
                   Kanda ino mibare kuri telefone yawe ukoreshe SIM kadi ya MTN
                   maze wishyure kuri:{" "}
                   <span className="text-md font-semibold text-yellow-700">
-                    EXPERT TECHNICAL UNITY Limited.
+                    CONGOZ EXPERT TECHNICAL UNITY.
                   </span>
                   <span className="ml-2">
                     Maze uhabwe kode ifungura ikizamini cyawe.
@@ -390,7 +390,7 @@ const StudentUnpaid = () => {
                   <img src={Mtn} alt="" className="w-10 h-6 pr-3" />
                   *182*8*1*
                   <span className="bg-green-400/20 border border-green-600">
-                    072255
+                    66966
                   </span>
                   *{selectedExam.itemId.fees}#
                   <button

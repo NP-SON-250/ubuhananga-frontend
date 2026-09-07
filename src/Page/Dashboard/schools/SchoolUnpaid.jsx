@@ -56,7 +56,7 @@ const SchoolUnpaid = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       setAccount(response.data);
     } catch (error) {
@@ -88,13 +88,13 @@ const SchoolUnpaid = () => {
       (searchTerm === "" ||
         item.itemId.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.itemId.validIn?.toString().includes(searchTerm) ||
-        item.itemId.fees?.toString().includes(searchTerm))
+        item.itemId.fees?.toString().includes(searchTerm)),
   );
 
   const totalPages = Math.ceil(filteredAccounts.length / accountsPerPage);
   const currentAccounts = filteredAccounts.slice(
     currentPage * accountsPerPage,
-    (currentPage + 1) * accountsPerPage
+    (currentPage + 1) * accountsPerPage,
   );
 
   const handlePurchaseClick = (account) => {
@@ -146,7 +146,7 @@ const SchoolUnpaid = () => {
       const purchasedDataId = selectedAccount._id;
       const paidItem = selectedAccount.itemId;
 
-      const notificationMessage = `Dear Admin, Turakumenyesha ko ${userName} yishyuye konte ${paidItem.title} y'iminsi ${paidItem.validIn} amafaranga ${selectedAccount.amount} Rwf akoresheje telephone ${phoneUsed} ibaruye kuri ${ownerName}. Reba ko wayabonye kuri telephone nimero: 072255 maze umuhe uburenganzira kuri iyi purchase Id: ${purchasedDataId}. Murakoze!!!!!`;
+      const notificationMessage = `Dear Admin, Turakumenyesha ko ${userName} yishyuye konte ${paidItem.title} y'iminsi ${paidItem.validIn} amafaranga ${selectedAccount.amount} Rwf akoresheje telephone ${phoneUsed} ibaruye kuri ${ownerName}. Reba ko wayabonye kuri telephone nimero: 66966 maze umuhe uburenganzira kuri iyi purchase Id: ${purchasedDataId}. Murakoze!!!!!`;
       const noteTitle = `${userName} requests for approval`;
 
       await axios.post(
@@ -162,7 +162,7 @@ const SchoolUnpaid = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       const purchaseId = selectedAccount._id;
@@ -174,7 +174,7 @@ const SchoolUnpaid = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setMessage({
@@ -199,7 +199,7 @@ const SchoolUnpaid = () => {
 
   // Copy payment code
   const copyPaymentCode = () => {
-    const paymentCode = `*182*8*1*072255*${selectedAccount.amount}#`;
+    const paymentCode = `*182*8*1*66966*${selectedAccount.amount}#`;
     navigator.clipboard
       .writeText(paymentCode)
       .then(() => {
@@ -370,7 +370,7 @@ const SchoolUnpaid = () => {
                     Kanda ino mibare kuri telefone yawe ukoreshe SIM kadi ya MTN
                     maze wishyure kuri:{" "}
                     <span className="text-md font-semibold text-yellow-700">
-                      EXPERT TECHNICAL UNITY Limited.
+                      CONGOZ EXPERT TECHNICAL UNITY.
                     </span>
                     <span className="ml-2">
                       Maze uhabwe kode ifungura konte yawe.
@@ -380,7 +380,7 @@ const SchoolUnpaid = () => {
                     <img src={Mtn} alt="" className="w-10 h-6 pr-3" />
                     *182*8*1*
                     <span className="bg-green-400/20 border border-green-600">
-                      072255
+                      66966
                     </span>
                     *{selectedAccount.amount}#
                     <button

@@ -39,7 +39,7 @@ const SchoolMyExams = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       const result = response.data?.data;
       setAccount(Array.isArray(result) ? { data: result } : { data: [result] });
@@ -63,7 +63,7 @@ const SchoolMyExams = () => {
       ].filter(Boolean);
       setUniqueValids(valids);
       const fees = [...new Set(account.data.map((item) => item.amount))].filter(
-        Boolean
+        Boolean,
       );
       setUniqueFees(fees.sort((a, b) => a - b));
     }
@@ -98,14 +98,14 @@ const SchoolMyExams = () => {
       (searchTerm === "" ||
         item.itemId.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.itemId.validIn?.toString().includes(searchTerm) ||
-        item.status?.toLowerCase().includes(searchTerm.toLowerCase()))
+        item.status?.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
   const totalPages = Math.ceil(filteredAccounts.length / accountsPerPage);
   const indexOfFirstAccount = (currentPage - 1) * accountsPerPage;
   const currentAccounts = filteredAccounts.slice(
     indexOfFirstAccount,
-    indexOfFirstAccount + accountsPerPage
+    indexOfFirstAccount + accountsPerPage,
   );
 
   const closePopup = () => {
@@ -151,7 +151,7 @@ const SchoolMyExams = () => {
       const purchasedDataId = selectedAccount._id;
       const paidItem = selectedAccount.itemId;
 
-      const notificationMessage = `Dear Admin, Turakumenyesha ko ${userName} yishyuye konte ${paidItem.title} y'iminsi ${paidItem.validIn} amafaranga ${selectedAccount.amount} Rwf akoresheje telephone ${phoneUsed} ibaruye kuri ${ownerName}. Reba ko wayabonye kuri telephone nimero: 072255 maze umuhe uburenganzira kuri iyi purchase Id: ${purchasedDataId}. Murakoze!!!!!`;
+      const notificationMessage = `Dear Admin, Turakumenyesha ko ${userName} yishyuye konte ${paidItem.title} y'iminsi ${paidItem.validIn} amafaranga ${selectedAccount.amount} Rwf akoresheje telephone ${phoneUsed} ibaruye kuri ${ownerName}. Reba ko wayabonye kuri telephone nimero: 66966 maze umuhe uburenganzira kuri iyi purchase Id: ${purchasedDataId}. Murakoze!!!!!`;
       const noteTitle = `${userName} requests for approval`;
 
       await axios.post(
@@ -167,7 +167,7 @@ const SchoolMyExams = () => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       const purchaseId = selectedAccount._id;
@@ -179,7 +179,7 @@ const SchoolMyExams = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setMessage({
@@ -233,7 +233,7 @@ const SchoolMyExams = () => {
 
   // Copy payment code
   const copyPaymentCode = () => {
-    const paymentCode = `*182*8*1*072255*${selectedAccount.amount}#`;
+    const paymentCode = `*182*8*1*66966*${selectedAccount.amount}#`;
     navigator.clipboard
       .writeText(paymentCode)
       .then(() => {
@@ -344,7 +344,7 @@ const SchoolMyExams = () => {
                   const diffDays = endDate
                     ? Math.ceil(
                         (endDate.setHours(0, 0, 0, 0) - today) /
-                          (1000 * 60 * 60 * 24)
+                          (1000 * 60 * 60 * 24),
                       )
                     : null;
 
@@ -460,7 +460,7 @@ const SchoolMyExams = () => {
                 Kanda ino mibare kuri telefone yawe ukoreshe SIM kadi ya MTN
                 maze wishyure kuri:{" "}
                 <span className="text-md font-semibold text-yellow-700">
-                  EXPERT TECHNICAL UNITY Limited.
+                  CONGOZ EXPERT TECHNICAL UNITY.
                 </span>
                 <span className="ml-2">
                   Maze uhabwe kode ifungura konte yawe.
@@ -470,7 +470,7 @@ const SchoolMyExams = () => {
                 <img src={Mtn} alt="" className="w-10 h-6 pr-3" />
                 *182*8*1*
                 <span className="bg-green-400/20 border border-green-600">
-                  072255
+                  66966
                 </span>
                 *{selectedAccount.amount}#
                 <button

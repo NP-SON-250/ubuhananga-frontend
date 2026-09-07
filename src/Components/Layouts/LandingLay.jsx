@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 const currentYear = new Date().getFullYear();
-const COPYRIGHT_TEXT = `© ${currentYear} Congozi Expert Technical Unity Limited`;
+const COPYRIGHT_TEXT = `© ${currentYear} Congoz Expert Technical Unity Driving School Limited`;
 
 const LandingLay = () => {
   const [applyHeight, setApplyHeight] = useState(false);
